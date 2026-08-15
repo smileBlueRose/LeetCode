@@ -35,3 +35,7 @@ Output: [0,1]
 - Only one valid answer exists.
 
 **Follow-up:** Can you come up with an algorithm that is less than `O(n^2)` time complexity?
+
+## Solution idea
+
+Iterate through the array once. For each element `x`, check whether `target - x` is already a key in the hash map. If yes — found the pair, return their indices. If no — insert `x` with its index into the map and continue. This gives O(n) time instead of O(n²) from brute force, since map lookup is O(1).
