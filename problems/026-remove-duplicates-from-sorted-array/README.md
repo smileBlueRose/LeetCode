@@ -47,3 +47,11 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 - `1 <= nums.length <= 3 * 10^4`
 - `-100 <= nums[i] <= 100`
 - `nums` is sorted in non-decreasing order.
+
+## Solution idea
+
+Two pointers: read scans the whole array, write points to where the next unique element should go.
+
+You compare nums[read] with nums[read-1] — since the array is sorted, duplicates are always adjacent. If the current element differs from the previous one, it's a new unique value, so you write it at position write and advance write. If it matches, you just skip it.
+
+At the end, write equals k, and the first write elements of the array are the unique values in order.
