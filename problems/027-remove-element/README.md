@@ -54,3 +54,11 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 * `0 <= nums.length <= 100`
 * `0 <= nums[i] <= 50`
 * `0 <= val <= 100`
+
+## Key idea
+
+
+Key idea: two pointers — write copies every element not equal to val into place at the front of the array, read scans through the entire array.
+
+Time: O(n) — single pass through the array.
+Space: O(1) — no extra memory used, modification is done in-place.
