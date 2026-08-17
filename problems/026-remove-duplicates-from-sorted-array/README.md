@@ -8,7 +8,7 @@ Consider the number of unique elements in `nums` to be `k`. After removing dupli
 
 The first `k` elements of `nums` should contain the unique numbers in sorted order. The remaining elements beyond index `k - 1` can be ignored.
 
-*Custom Judge*
+**Custom Judge**
 
 The judge will test your solution with the following code:
 
@@ -26,7 +26,7 @@ for (int i = 0; i < k; i++) {
 
 If all assertions pass, then your solution will be accepted.
 
-*Example 1:*
+**Example 1:**
 
 ```
 Input: nums = [1,1,2]
@@ -35,7 +35,7 @@ Explanation: Your function should return k = 2, with the first two elements of n
 It does not matter what you leave beyond the returned k (hence they are underscores).
 ```
 
-*Example 2:*
+**Example 2:**
 
 ```
 Input: nums = [0,0,1,1,1,2,2,3,3,4]
@@ -44,7 +44,7 @@ Explanation: Your function should return k = 5, with the first five elements of 
 It does not matter what you leave beyond the returned k (hence they are underscores).
 ```
 
-*Constraints:*
+**Constraints:**
 
 - `1 <= nums.length <= 3 * 10^4`
 - `-100 <= nums[i] <= 100`
