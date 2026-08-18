@@ -31,3 +31,7 @@ Thus, the result should be `[1,0]`.
 * `1 <= digits.length <= 100`
 * `0 <= digits[i] <= 9`
 * `digits` does not contain any leading 0's.
+
+## Solution idea
+
+Allocate an output array of size $N + 1$ to hold the result. Iterate right-to-left through the input array, copying each digit while propagating the addition carry. If the carry overflows past the first digit, set the leading element to 1 and the output size to $N + 1$; otherwise, set the output size to $N$.
