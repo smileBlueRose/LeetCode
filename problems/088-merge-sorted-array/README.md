@@ -43,3 +43,7 @@ The final sorted array should not be returned by the function, but instead be st
 **Follow up:** Can you come up with an algorithm that runs in $O(m + n)$ time?
 
 &nbsp;
+
+## Solution idea:
+
+Use two pointers at the ends of the valid elements in both arrays (`m - 1` and `n - 1`) and fill `nums1` from right to left (`m + n - 1`) with the larger of the two values. This merges the arrays in $O(m + n)$ time and $O(1)$ space without overwriting unprocessed elements.
