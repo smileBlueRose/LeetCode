@@ -48,3 +48,6 @@ Given a roman numeral, convert it to an integer.
 - `s` contains only the characters (`'I'`, `'V'`, `'X'`, `'L'`, `'C'`, `'D'`, `'M'`).
 - It is guaranteed that `s` is a valid roman numeral in the range `[1, 3999]`.
 
+## Solution idea
+
+Iterate left to right, adding each numeral's base value to result. If a subtractive prefix is detected directly before a character (e.g., 'I' before 'V'), add the value minus twice the prefix's value (e.g., $5 - 2 \times 1 = 3$) to offset the previous addition.
