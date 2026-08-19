@@ -25,3 +25,19 @@ Given an integer array `nums` where the elements are sorted in ascending order, 
 * `1 <= nums.length <= 104`
 * `-104 <= nums[i] <= 104`
 * `nums` is sorted in a strictly increasing order.
+
+&nbsp;
+
+## Solution idea
+
+To construct a height-balanced Binary Search Tree (BST) from a strictly increasing array, we can leverage a recursive **Divide and Conquer** strategy, similar to binary search.
+
+* **Root Selection:** To ensure the tree remains balanced, the middle element of the array (or subarray) must be chosen as the root of the current subtree. This splits the array into two halves of roughly equal size.
+* **Recursive Construction:**
+* The elements to the left of the middle element are recursively converted into the **left subtree**.
+* The elements to the right of the middle element are recursively converted into the **right subtree**.
+
+
+* **Base Case:** When the subsegment becomes empty (e.g., `start > end` or `size <= 0`), return `null`.
+
+Since each step reduces the problem size by half, the total depth of the tree will be $O(\log N)$, guaranteeing a height-balanced BST in $O(N)$ time complexity.
