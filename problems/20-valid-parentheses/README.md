@@ -54,3 +54,7 @@ Output: false
 
 * `1 <= s.length <= 10^4`
 * `s` consists of parentheses only `'()[]{}'`.
+
+## Solution idea
+
+Use a stack to keep track of opening brackets: walk through the string, push each character onto the stack, and when encountering a closing bracket, check if it matches the top element. If it matches, pop the top bracket; otherwise, push the character. The string is valid if the stack is completely empty at the end.
