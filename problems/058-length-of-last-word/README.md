@@ -36,3 +36,8 @@ A word is a maximal substring consisting of non-space characters only.
 
 &nbsp;
 
+## Solution idea
+ 
+Scan the string from the right. First skip over any trailing spaces to find the end of the last word, then continue scanning left while characters are non-space, counting how many are seen — that count is the answer. The boundary check (has the start of the string been reached?) must be evaluated before stepping the pointer/index further left, not after, otherwise the scan can step one position past the start of the string while looking for a stop condition that was already satisfied.
+ 
+Time and space complexity: $O(n)$ where n is `s.length`.
