@@ -32,3 +32,9 @@ In Pascal's triangle, each number is the sum of the two numbers directly above i
 **Follow up:** Could you optimize your algorithm to use only `O(rowIndex)` extra space?
 
 &nbsp;
+
+## Solution idea
+
+Instead of building the triangle row by row, each element of the target row is computed directly from the previous element using the multiplicative relation between binomial coefficients: `res[i] = res[i-1] * (rowIndex - i + 1) / i`. This works because `C(n, k) = C(n, k-1) * (n - k + 1) / k`, so the row can be filled in a single left-to-right pass, starting from `res[0] = 1`.
+
+Time and space complexity: $O(n)$ where n is `rowIndex`.
