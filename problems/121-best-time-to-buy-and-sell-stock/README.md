@@ -30,3 +30,10 @@ Note that buying on day 2 and selling on day 1 is not allowed because you must b
 * `1 <= prices.length <= 10^5`
 * `0 <= prices[i] <= 10^4`
 
+&nbsp;
+
+## Solution idea
+
+Track the minimum price seen so far while scanning left to right, and at each day compute the profit from selling at the current price against that minimum: `profit = prices[i] - min_price`. Keeping a running max of this value gives the answer in a single pass, without needing to check every pair of days.
+
+Time and space complexity: $O(n)$ where n is `prices.length`, and $O(1)$ extra space.
