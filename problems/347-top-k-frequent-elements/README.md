@@ -35,3 +35,9 @@ Given an integer array `nums` and an integer `k`, return the `k` most frequent e
 **Follow up:** Your algorithm's time complexity must be better than $O(n \log n)$, where n is the array's size.
 
 &nbsp;
+
+## Solution idea: Bucket Sort
+
+Count the frequency of each element using a hash map. Create an array of buckets indexed by frequency (from `0` to `nums.length`), where each bucket holds a list of elements with that frequency. Iterate the buckets from highest frequency to lowest, collecting elements until `k` elements are gathered.
+
+Time and space complexity: $O(n)$ time and $O(n)$ space, where n is `nums.length`.
