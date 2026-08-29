@@ -31,3 +31,11 @@ You must write an algorithm that runs in `O(n)` time and without using the divis
 &nbsp;
 
 **Follow up:** Can you solve the problem in $O(1)$ extra space complexity? (The output array does not count as extra space for space complexity analysis.)
+
+&nbsp;
+
+## Solution idea: Prefix and Suffix Products
+
+For each index `i`, compute the product of all elements to the left of `i` (prefix) and all elements to the right of `i` (suffix). The answer at index `i` is the product of its prefix and suffix. Build the suffix products first into an auxiliary array, then sweep left to right accumulating the prefix product on the fly, multiplying it with the stored suffix product to get each result — this avoids division and uses only one extra array.
+
+Time and space complexity: $O(n)$ time and $O(n)$ space, where n is `nums.length`.
