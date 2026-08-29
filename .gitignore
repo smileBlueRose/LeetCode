@@ -2,3 +2,8 @@
 app
 tools
 .tools
+utils
+build
+main.c
+test.py
+.vscode
