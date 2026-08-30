@@ -32,3 +32,7 @@ The strings "ate", "eat", and "tea" are anagrams as they can be rearranged to fo
 * `1 <= strs.length <= 10^4`
 * `0 <= strs[i].length <= 100`
 * `strs[i]` consists of lowercase English letters.
+
+Solution Idea
+
+Sort the characters of each string — anagrams produce the same sorted key. Use that key to group strings in a hash map, then return the map's values.
