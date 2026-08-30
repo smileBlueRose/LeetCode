@@ -39,3 +39,11 @@ Notice that:
 
 - `1 <= tokens.length <= 10^4`
 - `tokens[i]` is either an operator: `"+"`, `"-"`, `"*"`, or `"/"`, or an integer in the range `[-200, 200]`.
+
+&nbsp;
+
+## Solution idea
+
+Use a stack. Iterate through tokens: if the token is an operator, pop the top two values (`b` then `a`), apply the operator as `a op b`, and push the result back. If the token is a number, push it onto the stack. After processing all tokens, the stack contains a single value — the result.
+
+Time and space complexity: $O(n)$ where n is the number of tokens, and $O(n)$ extra space for the stack.
