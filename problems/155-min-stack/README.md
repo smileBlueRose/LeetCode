@@ -36,3 +36,12 @@ You must implement a solution with `O(1)` time complexity for each function.
 - `-2^31 <= val <= 2^31 - 1`
 - Methods `pop`, `top` and `getMin` operations will always be called on non-empty stacks.
 - At most `3 * 10^4` calls will be made to `push`, `pop`, `top`, and `getMin`.
+
+&nbsp;
+
+## Solution idea:
+
+- Maintain a second array `mins` parallel to the values stack.
+- `mins[i]` stores the minimum of `values[0..i]`.
+- Each push computes `mins[pos]` as `min(value, mins[pos-1])`.
+- `getMin()` is just `mins[pos]` — O(1) for every operation.
