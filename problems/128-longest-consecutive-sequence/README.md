@@ -32,3 +32,11 @@ Output: 3
 
 - `0 <= nums.length <= 10^5`
 - `-10^9 <= nums[i] <= 10^9`
+
+## Solution idea
+
+Put all numbers into a set to get O(1) lookups and remove duplicates.
+
+For each number in the set, check if it's the start of a sequence: it's a start if num - 1 is not in the set. If it is a start, walk forward (num + 1, num + 2, ...) counting how many consecutive numbers are present in the set.
+
+Track the maximum count found across all sequence starts. Iterating over the set instead of the original array avoids reprocessing duplicates and keeps the total work O(n).
