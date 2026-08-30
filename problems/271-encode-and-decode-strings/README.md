@@ -61,3 +61,9 @@ List<String> decoded_strs = decode(encoded_string);
 **Follow up:** Could you write a generalized algorithm to work on any possible set of characters?
 
 &nbsp;
+
+## Solution idea: Length-prefixed encoding
+
+Encode each string as `<length>#<string>`, using `#` as a separator between the length prefix and the string content. To decode, read digits until `#` to get the length, then read exactly that many characters as the string, and repeat until the encoded string is consumed. This avoids ambiguity with delimiter characters appearing inside the strings themselves.
+
+Time and space complexity: $O(m)$ time per `encode()`/`decode()` call and $O(m+n)$ space, where `m` is the sum of lengths of all strings and `n` is the number of strings.
