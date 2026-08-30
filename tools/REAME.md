@@ -1,0 +1,1 @@
+This folder contains functions and data structures that are useful for solving problems.
