@@ -1,6 +1,18 @@
-*test*
+# IDE
+.vscode/*
+
+# Dev folders
+test/
+build/
+
+# Binary files
 app
-build
+main
+test
+
+# C
 main.c
+test.c
+
+# Python
 test.py
-.vscode
