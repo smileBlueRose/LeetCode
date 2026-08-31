@@ -23,3 +23,7 @@ Given an array of integers `temperatures` represents the daily temperatures, ret
 **Constraints:**
 - `1 <= temperatures.length <= 10^5`
 - `30 <= temperatures[i] <= 100`
+
+## Solution idea
+
+Maintain a stack of indices whose warmer day hasn't been found yet, kept in decreasing order of temperature. For each new day, pop every index whose temperature is lower than the current one, setting `answer[popped] = i - popped`. Then push the current index. Indices left on the stack at the end never find a warmer day, so their `answer` stays `0`.
