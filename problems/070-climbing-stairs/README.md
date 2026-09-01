@@ -28,3 +28,7 @@ Explanation: There are three ways to climb to the top.
 **Constraints:**
 
 - `1 <= n <= 45`
+
+## Solution idea
+
+Let `f(n)` be the number of ways to reach step `n`. The last move to reach step `n` was either a single step from `n-1`, or a double step from `n-2`. So `f(n) = f(n-1) + f(n-2)` — this is the Fibonacci recurrence. Compute it iteratively bottom-up in O(n) time and O(1) space, keeping only the last two values.
