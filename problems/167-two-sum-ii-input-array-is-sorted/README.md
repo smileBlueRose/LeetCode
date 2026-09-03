@@ -39,3 +39,6 @@ Explanation: The sum of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We ret
 - `-1000 <= target <= 1000`
 - The tests are generated such that there is exactly one solution.
 
+## Solution idea
+
+Use two pointers: `left` at the start, `right` at the end. Sum `numbers[left] + numbers[right]`. If the sum equals `target` — found the pair. If the sum is less than `target` — move `left` forward to increase the sum. If the sum is greater than `target` — move `right` backward to decrease the sum. This gives O(n) time and O(1) extra space, relying on the array being sorted.
