@@ -31,3 +31,13 @@ Find three numbers whose product is maximum and return the maximum product.
 * `-1000 <= nums[i] <= 1000`
 
 &nbsp;
+
+## Solution idea
+
+The maximum product of three numbers comes from one of two cases: the three largest numbers, or the two smallest (most negative) numbers combined with the largest number, since two negatives multiply into a positive.
+
+Track the three largest values (`max1 >= max2 >= max3`) and the two smallest values (`min1 <= min2`) in a single pass. For each element, update the max trio by shifting values down when a larger one is found, and update the min pair the same way.
+
+Time complexity: $O(n)$ — a single pass over `nums`.
+
+Space complexity: $O(1)$ — only a fixed number of tracking variables are used.
