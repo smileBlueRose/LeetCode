@@ -32,3 +32,7 @@ Since an empty string reads the same forward and backward, it is a palindrome.
 
 - `1 <= s.length <= 2 * 10^5`
 - `s` consists only of printable ASCII characters.
+
+## Solution idea
+
+Use two pointers, `left` starting at the beginning and `right` at the end. Move `left` forward while it points to a non-alphanumeric char, move `right` backward while it points to a non-alphanumeric char. When both point to alphanumeric chars, compare them case-insensitively — if they differ, return `false`; otherwise move both pointers inward. Repeat until `left >= right`. This gives O(n) time and O(1) extra space
