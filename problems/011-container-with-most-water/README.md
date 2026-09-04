@@ -35,4 +35,4 @@ Notice that you may not slant the container.
 
 Use a two-pointer approach starting at both ends of the array. At each step, compute the container area using the distance between pointers and the shorter line: area = width * min_height. Move the pointer pointing to the shorter height inward, as moving the taller line cannot increase the area. Keeping a running max of the area gives the optimal result in a single pass.
 
-Time and space complexity: $O(n)$ where n is the length of the array, and $O(1)$ extra space.
+Time complexity: $O(n)$, where n is the length of the array. Space complexity: $O(1)$.
