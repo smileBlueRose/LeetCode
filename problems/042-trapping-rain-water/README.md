@@ -25,3 +25,15 @@ Compute how much water it can trap after raining.
 - `1 <= n <= 2 * 10^4`
 - `0 <= height[i] <= 10^5`
 
+&nbsp;
+
+## Solution idea
+
+Water above point i can't rise higher than the smaller of the two maximums — the max to the left and the max to the right — because it would spill over on the shorter side. That smaller value is the water level at point i.
+
+To know this value for every point, you need the max to the left and right of each i. So the maximums are computed once and stored in two arrays: lmax_arr[i] — the max to the left, filled with a left-to-right pass, rmax_arr[i] — the max to the right, filled with a right-to-left pass.
+
+Then for each i, take the smaller of lmax_arr[i] and rmax_arr[i] — that's the water level at that point. The water layer above the bar equals the difference between this level and height[i], but only if the water level is higher than the bar itself — otherwise there's no water there, and 0 is added.
+
+Time complexity: $O(n)$  
+Space complexity: $O(n)$
