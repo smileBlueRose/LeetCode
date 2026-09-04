@@ -33,3 +33,11 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 - 0 <= s.length <= 105
 - s consists of English letters, digits, symbols and spaces.
 
+&nbsp;
+
+## Solution idea
+
+Use a sliding window [left, right] that always contains no duplicate characters. Move right forward one step at a time, adding the new character. If that character already appeared inside the current window, move left forward to just past its previous occurrence, so the window stays duplicate-free. To find previous occurrences in O(1), keep an array last_seen mapping each character to the last index it was seen at. After each step, the window length right - left + 1 is a candidate for the answer — track the maximum.
+
+Time: O(n)  
+Space: O(1) (fixed 256-entry array for byte values)
