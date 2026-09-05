@@ -8,27 +8,26 @@ You may assume that each input would have exactly one solution, and you may not 
 
 You can return the answer in any order.
 
-**Example 1:**
-```
-Input: nums = [2,7,11,15], target = 9
-Output: [0,1]
-Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
-```
+&nbsp;
 
-**Example 2:**
-```
-Input: nums = [3,2,4], target = 6
-Output: [1,2]
-```
+**Example 1:**  
+**Input:** `nums = [2,7,11,15], target = 9`  
+**Output:** `[0,1]`  
+**Explanation:** Because nums[0] + nums[1] == 9, we return [0, 1].
 
-**Example 3:**
-```
-Input: nums = [3,3], target = 6
-Output: [0,1]
-```
+
+**Example 2:**  
+**Input:** `nums = [3,2,4], target = 6`  
+**Output:** `[1,2]`
+
+
+**Example 3:**  
+**Input:** `nums = [3,3], target = 6`  
+**Output:** `[0,1]`
+
+&nbsp;
 
 **Constraints:**
-
 - `2 <= nums.length <= 10^4`
 - `-10^9 <= nums[i] <= 10^9`
 - `-10^9 <= target <= 10^9`
@@ -36,6 +35,12 @@ Output: [0,1]
 
 **Follow-up:** Can you come up with an algorithm that is less than `O(n^2)` time complexity?
 
+&nbsp;
+
 ## Solution idea
 
 Iterate through the array once. For each element `x`, check whether `target - x` is already a key in the hash map. If yes — found the pair, return their indices. If no — insert `x` with its index into the map and continue. This gives O(n) time instead of O(n²) from brute force, since map lookup is O(1).
+
+**Time complexity:** O(n) — single pass, O(1) average map lookup/insert.
+
+**Space complexity:** O(n) — hash map can store up to n elements.
