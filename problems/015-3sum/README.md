@@ -8,27 +8,25 @@ Notice that the solution set must not contain duplicate triplets.
 
 &nbsp;
 
-**Example 1:**
+**Example 1:**  
+**Input:** `nums = [-1,0,1,2,-1,-4]`  
+**Output:** `[[-1,-1,2],[-1,0,1]]`
 
-**Input:** nums = [-1,0,1,2,-1,-4]
-**Output:** [[-1,-1,2],[-1,0,1]]
 
-**Example 2:**
+**Example 2:**  
+**Input:** `nums = [0,1,1]`  
+**Output:** `[]`
 
-**Input:** nums = [0,1,1]
-**Output:** []
 
-**Example 3:**
-
-**Input:** nums = [0,0,0]
-**Output:** [[0,0,0]]
+**Example 3:**  
+**Input:** `nums = [0,0,0]`  
+**Output:** `[[0,0,0]]`
 
 &nbsp;
 
 **Constraints:**
-
-* `3 <= nums.length <= 3000`
-* `-10^5 <= nums[i] <= 10^5`
+- `3 <= nums.length <= 3000`
+- `-10^5 <= nums[i] <= 10^5`
 
 &nbsp;
 
@@ -40,6 +38,6 @@ If `sum == 0`, a triplet is found; move both pointers inward while skipping dupl
 
 Duplicate triplets are avoided by skipping repeated values for `i` (comparing to `nums[i-1]`) and for `left`/`right` after a match is found.
 
-Time complexity: $O(n^2)$ — sorting is $O(n \log n)$, and the outer loop with the two-pointer scan is $O(n^2)$.
+**Time complexity:** O(n^2) — sorting is O(n log n), and the outer loop with the two-pointer scan is O(n^2).
 
-Space complexity: $O(n)$ for the output, plus $O(\log n)$ to $O(n)$ for the sort's recursion stack, depending on implementation.
+**Space complexity:** O(n) for the output, plus O(log n) to O(n) for the sort's recursion stack, depending on implementation.
