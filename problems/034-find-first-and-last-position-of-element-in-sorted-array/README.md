@@ -31,3 +31,19 @@ You must write an algorithm with `O(log n)` runtime complexity.
 - `-10^9 <= nums[i] <= 10^9`
 - `nums` is a non-decreasing array.
 - `-10^9 <= target <= 10^9`
+
+&nbsp;
+
+## Solution idea
+ 
+Run two separate binary searches on `nums`: one to find the leftmost occurrence of `target` (`lower_bound`), and one to find the rightmost occurrence (`upper_bound`).
+ 
+In `lower_bound`, when `nums[mid] == target`, check the neighbor at `mid - 1`: if it also equals `target`, narrow the search by setting `right = mid - 1` to keep looking further left; otherwise `mid` is the first occurrence, so return it.
+ 
+In `upper_bound`, when `nums[mid] == target`, check the neighbor at `mid + 1`: if it also equals `target`, narrow the search by setting `left = mid + 1` to keep looking further right; otherwise `mid` is the last occurrence, so return it.
+ 
+If either search exhausts the range without finding `target`, it returns `-1`.
+ 
+**Time complexity:** O(log n) — two independent binary searches.
+ 
+**Space complexity:** O(1) — excluding the output array.
