@@ -26,3 +26,13 @@ You must write an algorithm with `O(log n)` runtime complexity.
 - `-10^4 < nums[i], target < 10^4`
 - All the integers in `nums` are unique.
 - `nums` is sorted in ascending order.
+
+&nbsp;
+
+## Solution idea
+ 
+Maintain two pointers `left` and `right` spanning the current search range. While `left <= right`, compute `mid`, compare `nums[mid]` to `target`: if equal, return `mid`; if `nums[mid] < target`, discard the left half by setting `left = mid + 1`; otherwise discard the right half by setting `right = mid - 1`. If the range becomes empty, return `-1`.
+ 
+**Time complexity:** O(log n) — each step halves the search range.
+ 
+**Space complexity:** O(1) — only a constant number of pointers used.
