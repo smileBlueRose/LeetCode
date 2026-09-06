@@ -35,3 +35,12 @@ The testcases will be generated such that the answer is unique.
 
 **Follow up:** Could you find an algorithm that runs in `O(m + n)` time?
 
+&nbsp;
+
+## Solution idea
+
+Sliding window with two pointers. Maintain a frequency table for `t`'s characters and a `mismatch_count` equal to `n`. Expand `right`, decrementing the count for `s[right]`; whenever a count drops to `>= 0` after decrementing, decrement `mismatch_count` (one more required character satisfied). While `s[left]`'s count is negative (excess character), shrink from the left. When `mismatch_count == 0`, the current window is valid — record it if smaller than the best found so far.
+
+**Time complexity:** O(m + n) — each pointer moves at most m steps, plus O(n) to build the frequency table.
+
+**Space complexity:** O(1) — fixed-size (256) lookup table for character counts.
