@@ -30,3 +30,11 @@ Given the `head` of a singly linked list, reverse the list, and return the rever
 &nbsp;
 
 **Follow up:** A linked list can be reversed either iteratively or recursively. Could you implement both?
+
+## Solution idea
+
+Iterate through the list once, at each node redirecting its `next` pointer to point backward (to `prev`) instead of forward. Before overwriting `curr->next`, save it in `next` so the rest of the list isn't lost. Advance `prev` and `curr` one step forward each iteration. When `curr` becomes `NULL`, `prev` holds the new head of the reversed list.
+
+**Time complexity:** O(n) — single pass over the list.
+
+**Space complexity:** O(1) — only a fixed number of pointers used, no extra structures.
