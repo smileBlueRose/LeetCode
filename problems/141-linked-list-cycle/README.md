@@ -34,3 +34,13 @@ Return `true` if there is a cycle in the linked list. Otherwise, return `false`.
 - The number of the nodes in the list is in the range `[0, 10^4]`.
 - `-10^5 <= Node.val <= 10^5`
 - `pos` is `-1` or a valid index in the linked-list.
+
+&nbsp;
+
+## Solution idea
+
+Use two pointers, `slow` and `fast`, both starting at `head`. `slow` advances one node per step while `fast` advances two. If there's no cycle, `fast` reaches the end (`NULL`) first, since it moves twice as fast. If there is a cycle, `fast` eventually laps `slow` from behind and the two pointers land on the same node, since a faster runner on a loop always catches up to a slower one.
+
+**Time complexity:** O(n) — in the worst case `fast` traverses the list at most twice before either exiting or catching `slow`.
+
+**Space complexity:** O(1) — only two pointers used, no extra structures.
