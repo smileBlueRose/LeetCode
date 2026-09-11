@@ -28,3 +28,13 @@ Given the `head` of a linked list, remove the `nth` node from the end of the lis
 - `1 <= sz <= 30`
 - `0 <= Node.val <= 100`
 - `1 <= n <= sz`
+
+&nbsp;
+
+## Solution idea
+
+First pass through the list to count its total length `len`. The node to remove, counted from the front, sits at index `len - n`. If that index is `0`, the head itself must be removed, so special-case it by returning `head->next` and freeing the old head. Otherwise, walk `prev` and `node` forward together until `node` reaches the target index, keeping `prev` one step behind so it points at the node before it. Then splice `node` out by linking `prev->next` directly to `node->next`, and free `node`.
+
+**Time complexity:** O(n) — one pass to find the length, another to reach the target node.
+
+**Space complexity:** O(1) — only a fixed number of pointers used, no extra structures.
