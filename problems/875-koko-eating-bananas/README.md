@@ -33,3 +33,15 @@ Return the minimum integer `k` such that she can eat all the bananas within `h` 
 - `1 <= piles.length <= 10^4`
 - `piles.length <= h <= 10^9`
 - `1 <= piles[i] <= 10^9`
+
+&nbsp;
+
+## Solution idea
+
+As the eating speed `k` increases, the total hours needed to finish all piles decreases monotonically (using ceiling division per pile, since a partial pile still costs a full hour). This monotonic relationship means binary search can be applied to find the minimum valid `k`.
+
+Binary search `k` over `[1, max(piles)]` — speeds below 1 make no sense, and a speed equal to the largest pile always finishes any single pile in one hour. For each candidate speed, compute the total hours required; if it fits within `h`, try a smaller speed, otherwise try a larger one. The smallest speed that still meets the deadline is the answer.
+
+**Time complexity:** O(n * log(max(piles))) — binary search over the speed range, with an O(n) pass to compute total hours at each step.
+
+**Space complexity:** O(1) — only a fixed number of variables used, no extra structures.
