@@ -26,3 +26,13 @@ You must not use any built-in exponent function or operator.
 
 **Constraints:**
 - `0 <= x <= 2^31 - 1`
+
+&nbsp;
+
+## Solution idea
+
+Binary search for the largest value whose square doesn't exceed `x`, since squares grow monotonically with the value.
+
+**Time complexity:** O(log n) — binary search over the search range.
+
+**Space complexity:** O(1) — only a fixed number of variables used, no extra structures.
