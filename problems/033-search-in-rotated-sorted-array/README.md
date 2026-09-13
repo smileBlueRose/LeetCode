@@ -35,3 +35,15 @@ You must write an algorithm with `O(log n)` runtime complexity.
 - All values of `nums` are unique.
 - `nums` is an ascending array that is possibly rotated.
 - `-10^4 <= target <= 10^4`
+
+&nbsp;
+
+## Solution idea
+
+First locate the rotation point with a binary search: compare `nums[mid]` to `nums[right]`. If `nums[mid] > nums[right]`, the break lies to the right of `mid`, so move `left = mid + 1`; otherwise the segment from `mid` to `right` is already sorted, so move `right = mid`. When the range collapses to one element, that's the index of the minimum.
+
+Once the rotation point (`min_index`) is known, the array splits into two sorted segments: `[0, min_index - 1]` and `[min_index, size - 1]`. Check which segment's value range contains `target` and set `left`/`right` to that segment's bounds; if `target` falls in neither range, it can't be in the array, so return `-1` immediately. Then run a standard binary search within the chosen segment.
+
+**Time complexity:** O(log n) — two binary searches in sequence, each halving its range.
+
+**Space complexity:** O(1) — only a fixed number of variables used, no extra structures.
