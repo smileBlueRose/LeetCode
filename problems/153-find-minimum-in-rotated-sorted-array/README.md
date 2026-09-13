@@ -41,3 +41,13 @@ You must write an algorithm that runs in `O(log n) time`.
 - `-5000 <= nums[i] <= 5000`
 - All the integers of `nums` are unique.
 - `nums` is sorted and rotated between `1` and `n` times.
+
+&nbsp;
+
+## Solution idea
+
+At each step, compare `nums[mid]` to `nums[right]` to decide which half contains the rotation point (the minimum). If `nums[mid] > nums[right]`, the break between the two sorted segments lies to the right of `mid`, so the minimum is in `[mid+1, right]`. If `nums[mid] < nums[right]`, the segment from `mid` to `right` is already sorted with no break, so the minimum is at `mid` or somewhere to its left, meaning `right` narrows to `mid` itself rather than `mid - 1`. The search range keeps shrinking toward the rotation point until it collapses to a single element, which is the minimum.
+
+**Time complexity:** O(log n) — binary search halves the search range each iteration.
+
+**Space complexity:** O(1) — only a fixed number of variables used, no extra structures.
