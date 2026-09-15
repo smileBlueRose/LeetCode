@@ -34,3 +34,12 @@ Window position                Max
 - `-10^4 <= nums[i] <= 10^4`
 - `1 <= k <= nums.length`
 
+&nbsp;
+
+## Solution idea
+
+Use a deque that stores indices of `nums`, kept in decreasing order of their values. For each new index `i`: pop indices from the back while their values are less than `nums[i]` (they can never be the max again), then push `i`. Pop from the front if it falls outside the window (`front <= i - k`). Once `i >= k - 1`, the front of the deque is the max of the current window.
+
+**Time complexity:** O(n) — each index is pushed and popped at most once.
+
+**Space complexity:** O(k) — the deque holds at most `k` indices.
