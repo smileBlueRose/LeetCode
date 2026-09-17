@@ -39,3 +39,13 @@ Your code will only be given the `head` of the original linked list.
 - `0 <= n <= 1000`
 - `-10^4 <= Node.val <= 10^4`
 - `Node.random` is `null` or is pointing to some node in the linked list.
+
+&nbsp;
+
+## Solution idea
+
+Interleave copied nodes into the original list: for each node, insert a copy right after it (`orig1 -> copy1 -> orig2 -> copy2 -> ...`). Since each copy sits directly next to its original, `copy->random = orig->random->next` gives the copy the correct random pointer. Then unweave the list into two separate lists by walking `copy->next = copy->next->next`, restoring the original list and producing the deep copy without extra memory for a hash map.
+
+**Time complexity:** O(n) — three passes over the list.
+
+**Space complexity:** O(1) — no auxiliary data structures beyond the new nodes themselves.
