@@ -26,34 +26,41 @@ for (int i = 0; i < k; i++) {
 
 If all assertions pass, then your solution will be accepted.
 
+&nbsp;
+
 **Example 1:**
 
-```
-Input: nums = [1,1,2]
-Output: 2, nums = [1,2,_]
-Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
-It does not matter what you leave beyond the returned k (hence they are underscores).
-```
+**Input:** `nums = [1,1,2]`
+
+**Output:** `2, nums = [1,2,_]`
+
+**Explanation:** Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively. It does not matter what you leave beyond the returned k (hence they are underscores).
 
 **Example 2:**
 
-```
-Input: nums = [0,0,1,1,1,2,2,3,3,4]
-Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
-Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
-It does not matter what you leave beyond the returned k (hence they are underscores).
-```
+**Input:** `nums = [0,0,1,1,1,2,2,3,3,4]`
+
+**Output:** `5, nums = [0,1,2,3,4,_,_,_,_,_]`
+
+**Explanation:** Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively. It does not matter what you leave beyond the returned k (hence they are underscores).
+
+&nbsp;
 
 **Constraints:**
-
 - `1 <= nums.length <= 3 * 10^4`
 - `-100 <= nums[i] <= 100`
 - `nums` is sorted in non-decreasing order.
 
+&nbsp;
+
 ## Solution idea
 
-Two pointers: read scans the whole array, write points to where the next unique element should go.
+Two pointers: `read` scans the whole array, `write` points to where the next unique element should go.
 
-You compare nums[read] with nums[read-1] — since the array is sorted, duplicates are always adjacent. If the current element differs from the previous one, it's a new unique value, so you write it at position write and advance write. If it matches, you just skip it.
+Compare `nums[read]` with `nums[read - 1]` — since the array is sorted, duplicates are always adjacent. If the current element differs from the previous one, it's a new unique value, so write it at position `write` and advance `write`. If it matches, skip it.
 
-At the end, write equals k, and the first write elements of the array are the unique values in order.
+At the end, `write` equals `k`, and the first `write` elements of the array are the unique values in order.
+
+**Time complexity:** O(n) — single pass over the array.
+
+**Space complexity:** O(1) — in-place, no extra data structures.
