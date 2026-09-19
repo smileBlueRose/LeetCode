@@ -30,34 +30,31 @@ for (int i = 0; i < actualLength; i++) {
 
 If all assertions pass, then your solution will be accepted.
 
-**Example 1:**
+&nbsp;
 
-```
-Input: nums = [3,2,2,3], val = 3
-Output: 2, nums = [2,2,_,_]
-Explanation: Your function should return k = 2, with the first two elements of nums being 2.
-It does not matter what you leave beyond the returned k (hence they are underscores).
-```
+**Example 1:**  
+**Input:** `nums = [3,2,2,3], val = 3`  
+**Output:** `2, nums = [2,2,_,_]`  
+**Explanation:** Your function should return k = 2, with the first two elements of nums being 2. It does not matter what you leave beyond the returned k (hence they are underscores).
 
-**Example 2:**
+**Example 2:**  
+**Input:** `nums = [0,1,2,2,3,0,4,2], val = 2`  
+**Output:** `5, nums = [0,1,4,0,3,_,_,_]`  
+**Explanation:** Your function should return k = 5, with the first five elements of nums containing 0, 0, 1, 3, and 4. Note that the five elements can be returned in any order. It does not matter what you leave beyond the returned k (hence they are underscores).
 
-```
-Input: nums = [0,1,2,2,3,0,4,2], val = 2
-Output: 5, nums = [0,1,4,0,3,_,_,_]
-Explanation: Your function should return k = 5, with the first five elements of nums containing 0, 0, 1, 3, and 4.
-Note that the five elements can be returned in any order.
-It does not matter what you leave beyond the returned k (hence they are underscores).
-```
+&nbsp;
 
 **Constraints:**
-
 - `0 <= nums.length <= 100`
 - `0 <= nums[i] <= 50`
 - `0 <= val <= 100`
 
+&nbsp;
+
 ## Solution idea
 
-Key idea: two pointers — write copies every element not equal to val into place at the front of the array, read scans through the entire array.
+Two pointers: `write` copies every element not equal to `val` into place at the front of the array, `read` scans through the entire array.
 
-Time: O(n) — single pass through the array.
-Space: O(1) — no extra memory used, modification is done in-place.
+**Time complexity:** O(n) — single pass through the array.
+
+**Space complexity:** O(1) — no extra memory used, modification is done in-place.
