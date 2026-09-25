@@ -35,3 +35,24 @@ You must solve the problem without modifying the array `nums` and using only con
 **Follow up:**
 - How can we prove that at least one duplicate number must exist in `nums`?
 - Can you solve the problem in linear runtime complexity?
+
+&nbsp;
+
+## Solution idea
+
+**Solution 1** — use a boolean array `digits` indexed by value to track seen numbers. Scan `nums` once; the first value already marked in `digits` is the duplicate.
+
+**Time complexity:** O(n) — single pass over the array.
+
+**Space complexity:** O(n) — auxiliary array sized to the value range.
+
+**Solution 2** — treat `nums` as a function `f(i) = nums[i]` mapping each index to another index in `[1, n]`. Since one value repeats, at least two indices map to it, which means following `f` repeatedly must eventually enter a cycle (like a linked list with a loop) — the duplicate value is exactly the entry point of that cycle.
+
+This is Floyd's cycle detection (tortoise and hare), applied to that implicit function graph instead of a real linked list:
+
+1. **Phase 1 — detect the cycle:** `slow` moves one step (`slow = nums[slow]`), `fast` moves two steps (`fast = nums[nums[fast]]`). Because fast gains on slow by one step per iteration inside a finite cycle, they're guaranteed to meet somewhere inside it.
+2. **Phase 2 — find the entry point:** reset `slow` to the start (index 0, which isn't part of the cycle since values are in `[1, n]`, never 0), keep `fast` at the meeting point, then move both one step at a time. The classic Floyd proof (distance from start to cycle entry equals distance from meeting point to cycle entry, going around the cycle) guarantees they meet exactly at the entry — which is the duplicate number.
+
+**Time complexity:** O(n) — both phases traverse the sequence a bounded number of times.
+
+**Space complexity:** O(1) — only a few integer variables, no extra array; satisfies the problem's constraint.
